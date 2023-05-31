@@ -1,0 +1,95 @@
+<div id="<%= dom_id flat %>">
+
+<% image = Unsplash::Photo.search("houses").sample %>
+
+
+<div class="row">
+    <div class="col-md-12 " style="height: 25vh;">
+    <div class="hero" style="background-image: url(<%= image.urls.regular %>)"></div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="negative">
+    <div class="row">
+
+      <div class="col-8">
+
+          <div class="p-3 rounded shadow-sm bg-light">
+            <h1 class="card-title"><%= flat.name %></h1>
+            <p class="card-text"><%= flat.address %></p>
+          </div>
+
+          <div class="p-3 mt-3 rounded shadow-sm bg-light">
+            <div>
+              <h5>More about this flat...</h5>
+              <p><%= flat.description %></p>
+            </div>
+            <div id="map"> Map </div>
+          </div>
+
+
+
+      </div>
+
+        <div class="col-4">
+
+          <div class="p-3 rounded shadow-sm bg-light">
+            <form>
+            <legend>Book this place!</legend>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">From:</span>
+                <input type="text" class="form-control" placeholder="<%= Time.new.strftime("%d/%m/%Y")%>" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">To:</span>
+                <input type="text" class="form-control" placeholder="<%= (Time.new + 1.day).strftime("%d/%m/%Y")%>" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-success" type="button">Book</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="p-3 mt-3 rounded shadow-sm bg-light">
+            <h3>Details</h3>
+            <div class="d-flex flex-row">
+                    <small>
+                      <i class="fa-solid fa-people-group"></i>
+                      <%= flat.number_of_guests %>
+                      <i class="fa-solid fa-euro-sign"></i>
+                      <%= flat.price_per_night %>
+                    </small>
+              </div>
+          </div>
+
+          <div class="p-3 mt-3 rounded shadow-sm bg-light">
+            <div class="d-flex justify-content-between">
+              <p>Share</p>
+              <ul class="list-line">
+                <li>
+                  <a href="https://github.com/AngelLozan" target="_blank">
+                    <i class="fab fa-github-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/bytebuildcrypto" target="_blank">
+                    <i class="fab fa-twitter-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/angel-lozans/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BKQVPEitFSiyfczhglTj%2B7Q%3D%3D" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

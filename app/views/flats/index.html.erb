@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <div class="text-center">
+    <h1>All Our Flats (<%= @flats.count %>)</h1>
+  </div>
+
+  <div class="row" id="flats">
+    <% @flats.each do |flat| %>
+      <div class="col-sm-6">
+        <div class="card my-3 mx-3 p-3 shadow rounded">
+          <img class="card-img-top" src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/Stock-Airbnb-Home-AdobeStock-298309756%20-%20Copy-2.jpeg" alt="stock image">
+          <div class="card-body">
+              <h5 class="card-title"><%= flat.name %></h5>
+              <p class="card-text"><%= flat.address %></p>
+              <div class="d-flex flex-row">
+                  <small>
+                    <i class="fa-solid fa-people-group"></i>
+                    <%= flat.number_of_guests %>
+                    <i class="fa-solid fa-euro-sign"></i>
+                    <%= flat.price_per_night %>
+                  </small>
+              </div>
+            </div>
+          <p>
+            <%= link_to "Show this flat", flat, class: "btn btn-primary mt-3" %>
+          </p>
+          <div class="d-flex flex-row">
+              <%= link_to 'Edit', edit_flat_path(flat), class:"btn btn-link" %>
+              <%= button_to "Remove", flat, method: :delete, class:"btn btn-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
