@@ -1,3 +1,10 @@
+# require 'httparty'
+# require 'json'
+
+# base_url = 'https://api.mapbox.com'
+# access_token = 'pk.eyJ1IjoiYW5nZWxsb3oiLCJhIjoiY2xodWNwdXRpMHFuMjNrcHFmYTZ5M3VmcCJ9.YwAIusZGfSfy6mYesEaTvg'
+
+
 class FlatsController < ApplicationController
   before_action :set_flat, only: %i[ show edit update destroy ]
 
@@ -8,6 +15,17 @@ class FlatsController < ApplicationController
 
   # GET /flats/1 or /flats/1.json
   def show
+    # address = @flat.address
+    # response = HTTParty.get("#{base_url}/geocoding/v5/mapbox.places/#{URI.encode(address)}.json?access_token=#{access_token}")
+
+    # if response.code == 200
+    #   data = JSON.parse(response.body)
+    #   # Process the response data as needed
+    #   @lat = data['features'][0]['center'][1]
+    # else
+    #   format.html { render :new, status: :unprocessable_entity }
+    #   format.json { render json: @flat.errors, status: :unprocessable_entity }
+    # end
   end
 
   # GET /flats/new
