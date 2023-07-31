@@ -251,6 +251,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv
   dotenv-rails
   faker
   importmap-rails
